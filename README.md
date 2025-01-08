@@ -74,3 +74,6 @@ Conclusion
 Through this project, a comprehensive employee management database system was developed using SQL. The relational design with interlinked tables for employees, departments, and job positions allows for efficient data storage and retrieval. The SQL queries demonstrated a variety of operations, including data retrieval, aggregation, updates, and deletions. This system enables the management of employee records in a corporate environment, ensuring that all employee data is accurately tracked and accessible for analysis or reporting. This project successfully showcases the use of SQL for managing employee records and departmental information in a real-world business setting.
 
 #OUTPUT
+![Screenshot 2025-01-09 002112](https://github.com/user-attachments/assets/8c4fd4dd-269b-4132-9bae-010e64e55d6a)
+![Screenshot 2025-01-09 002126](https://github.com/user-attachments/assets/f2568496-4868-49c3-8868-349c84a56798)
+![Screenshot 2025-01-09 002140](https://github.com/user-attachments/assets/37529027-8b41-49a8-b542-236273227ee6)
