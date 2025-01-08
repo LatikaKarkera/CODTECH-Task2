@@ -1,0 +1,92 @@
+CREATE DATABASE employees_management;
+USE employees_management;
+
+create table department (
+    department_id int auto_increment primary key,
+    department_name varchar(50) not null
+);
+
+-- Create the job_positions table
+create table job_position (
+    position_id int auto_increment primary key,
+    position_name varchar(50) not null
+);
+
+-- Create the employees table
+create table employee (
+    employee_id int auto_increment primary key,
+    first_name varchar(50) not null,
+    last_name varchar(50) not null,
+    birth_date date,
+    gender varchar(10),
+    address varchar(255),
+    department_id int,
+    position_id int,
+    salary_amount decimal(10, 2)
+);
+
+-- Insert values into department table
+insert into department (department_name) 
+values ('HR'),
+('Engineering'),
+('Sales'),
+('Marketing'),
+('Finance'),
+('Operations'),
+('Customer Support'),
+('IT');
+
+-- Insert values into job_position table
+INSERT INTO job_position (position_name) 
+VALUES 
+('Manager'),
+('Developer'),
+('Sales Representative'),
+('Marketing Specialist'),
+('Financial Analyst'),
+('Operations Coordinator'),
+('Customer Support Specialist'),
+('IT Administrator');
+
+
+-- Insert employee records into employees table
+INSERT INTO employee (first_name, last_name, birth_date, gender, address, department_id, position_id, salary_amount)
+VALUES 
+('Arun', 'Doel', '1990-01-15', 'Male', '123 Main St', 2, 2, 78000.00), 
+('Junita', 'Sharma', '1985-12-28', 'Female', '456 Oak Rd', 1, 1, 38000.00),
+('Sam', 'Wilson', '1980-06-30', 'Male', '789 Pine Ln', 3, 3, 55000.00),
+('Priya', 'Bhat', '1992-03-12', 'Female', '321 Elm St', 4, 4, 86000.00), 
+('Mishti', 'Johar', '1978-09-22', 'Female', '654 Maple Dr', 5, 5, 69000.00),
+('Sonali', 'Lad', '1989-11-15', 'Female', '789 Cedar Ave', 6, 6, 59000.00), 
+('Danish', 'Tiwari', '1995-05-08', 'Male', '987 Spruce Blvd', 7, 7, 63000.00),
+('Amaya', 'Mehta', '1987-07-19', 'Female', '147 Birch Ct', 8, 8, 44000.00); 
+
+-- Show all Employee Details with Department and Job Position
+select e.employee_id, e.first_name, e.last_name, e.birth_date, e.gender, e.address,
+d.department_name, j.position_name, e.salary_amount
+from employee e
+LEFT JOIN department d ON e.department_id = d.department_id
+LEFT JOIN job_position j ON e.position_id = j.position_id;
+
+-- Get the Highest Salary in Each Department
+select d.department_name, MAX(e.salary_amount) AS highest_salary
+from employee e
+LEFT JOIN department d ON e.department_id = d.department_id
+GROUP BY d.department_name;
+
+-- Update Employee Salary
+update employee
+set salary_amount = 75000.00
+where employee_id = 1;
+
+-- Delete employee record
+DELETE FROM employee
+WHERE employee_id = 3;
+
+-- List of Employees Who Earn More Than a Specific Salary
+select first_name, last_name, salary_amount
+from employee
+where salary_amount > 50000;
+
+
+
